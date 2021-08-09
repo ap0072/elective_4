@@ -8,4 +8,25 @@
 
 
 def fun_nearestbusstop(street):
-	return -1
+	i=0
+	j=8
+	if street==0:
+		return 0
+	flag=True
+	while(flag):
+		print(i,j)
+		if i==street:
+			return i
+		if j==street:
+			return j
+		if i<street & street<j:
+			l=street-i
+			u=j-street
+			if l<=u:
+				return i
+			else:
+				return j
+		i=j
+		j=j+8
+print(fun_nearestbusstop(4))
+		
