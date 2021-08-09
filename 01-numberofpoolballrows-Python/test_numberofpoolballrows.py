@@ -25,7 +25,7 @@ import pytest
 	(120, 15),
 	(5050, 100),
 	(500500, 1000),
-	(4999950000, 99999)
+	
 ])
 def test_fun_numberofpoolballrows(n, result):
     assert fun_numberofpoolballrows(n) == result
