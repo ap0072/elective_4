@@ -6,4 +6,12 @@
 
 def lineintersection(m1, b1, m2, b2):
 	# your code goes here
-	pass
+	if (m1==m2) | (m2%m1==0) | (m1%m2==0):
+		return None
+	else:
+		#y=mx+c
+		#m1x1+c=m2x2+c -> m1-m2=b2-b1 
+		v=(b2-b1)/(m1-m2)
+		if v<0:
+			v=v*-1
+		return v
