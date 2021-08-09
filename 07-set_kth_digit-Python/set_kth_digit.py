@@ -7,5 +7,28 @@
 
 
 def fun_set_kth_digit(n, k, d):
-		return 0
+		if n<0:
+			flag=True
+		else:
+			flag=False
 
+		n1=str(n)
+		fresh=[]
+		for i in range(len(n1)): #i=0
+			fresh.append(n1[i])
+		fresh=fresh[::-1]
+		if k==len(fresh):
+			fresh.append(d)
+		else:
+			fresh[k]=d
+		fresh=fresh[::-1]
+		l=""
+		for i in fresh:
+			l=l+str(i)
+		if flag:
+			l=-1*int(l)
+			return l
+		else:
+			return int(l)
+
+# print(fun_set_kth_digit(468, 0, 1))
