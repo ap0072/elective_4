@@ -8,6 +8,15 @@
 
 import math
 def fun_find_int_roots(a, b, c):
-	return 0, 0
+	d=(b*b) - (4*a*c)
+	sqrt_val=math.sqrt(abs(d))
+	root1=(-b+sqrt_val)/(2*a)
+	root2=(-b-sqrt_val)/(2*a)
+	if root1<root2:
+		return root1, root2
+	else:
+		return root2, root1
+
+#print(fun_find_int_roots(1, -7, 12))
 
 
