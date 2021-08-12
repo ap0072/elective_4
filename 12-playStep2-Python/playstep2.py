@@ -35,4 +35,47 @@
 
 def playstep2(hand, dice):
 	# your code goes here
-	pass
+	shand=str(hand)
+	d=[]
+	if shand[1]==shand[2]:
+		d.append(str(dice)[-1])
+		d.append(shand[1])
+		d.append(shand[2])
+	
+		shandorder=dicetoorderedhand(d[0],d[1],d[2])
+		sdice=""
+		for i in str(dice):
+			sdice=sdice+i
+		return (shandorder,int(sdice[0:-1]))
+	else:
+		d.append(shand[0])
+		d.append(str(dice)[-1])
+		d.append(str(dice)[-2])
+		shandorder=dicetoorderedhand(d[0],d[1],d[2])
+		sdice=""
+		for i in str(dice):
+			sdice=sdice+i
+		
+		return(shandorder,int(sdice[0:-2]))
+
+
+def dicetoorderedhand(a, b, c):
+	# your code goes here
+	if (a<=b):
+		if (b<=c):
+			return int(str(c)+str(b)+str(a))
+		elif (c>a):
+			return int(str(b)+str(c)+str(a))
+		else:
+			return int(str(b)+str(a)+str(c))
+	else:
+		if (a<c):
+			return int(str(c)+str(a)+str(b))
+		elif (c>b):
+			return int(str(a)+str(c)+str(b))
+		elif a==c:
+			return int(str(a)+str(c)+str(b))
+		else:
+			return int(str(a)+str(b)+str(c))
+
+print(playstep2(413, 234))
