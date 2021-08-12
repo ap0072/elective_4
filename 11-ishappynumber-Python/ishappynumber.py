@@ -16,7 +16,35 @@
 # assert(ishappynumber(98) == False)
 # assert(ishappynumber(404) == True)
 # assert(ishappynumber(405) == False)
+def helper(n):
+	l=[]
+	for i in str(n):
+		l.append(i)
+	l=[int(i) for i in l]
+	l=[i**2 for i in l]
+	s=0
+	for i in l:
+		s=s+i
+	return s
 
 def ishappynumber(n):
 	# your code goes here
-	pass
+	if  n<1:
+		return False
+	else:
+		if(str(n)==1):
+			if(n**2==1):
+				return True
+		else:
+			val=0
+			while(val!=1):
+				val=helper(n)
+				print(val)
+				n=val
+			if val==1:
+				return True
+			else:
+				return False
+
+
+print(ishappynumber(98))
