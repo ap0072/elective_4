@@ -12,4 +12,20 @@
 
 def dicetoorderedhand(a, b, c):
 	# your code goes here
-	pass
+	if (a<=b):
+		if (b<=c):
+			return int(str(c)+str(b)+str(a))
+		elif (c>a):
+			return int(str(b)+str(c)+str(a))
+		else:
+			return int(str(b)+str(a)+str(c))
+	else:
+		if (a<c):
+			return int(str(c)+str(a)+str(b))
+		elif (c>b):
+			return int(str(a)+str(c)+str(b))
+		elif a==c:
+			return int(str(a)+str(c)+str(b))
+		else:
+			return int(str(a)+str(b)+str(c))
+	
