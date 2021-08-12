@@ -4,14 +4,9 @@
 # Here are sample test cases:
 def helper(n):
     #print(n)
-    d=[]
-    for i in str(n):
-        #print(i)
-        d.append(int(i))
-    #print(d)
     val=0
-    for i in d:
-        val=val+i
+    for i in str(n):
+        val=val+int(i)
     return val
 
 def isprime(n):
