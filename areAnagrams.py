@@ -9,9 +9,19 @@
 # functions or approaches. Hint: you may use s.count(), 
 # which could be quite handy here.
 # Hint: The time complexity can be achieved in Linear.
-
+def helper(s):
+    d={}
+    for i in s:
+        d[i]=s.count(i)
+    return d
+    
 def areAnagrams(s1, s2):
     # Your code goes here...
-    pass
+    s1=s1.lower()
+    s2=s2.lower()
+
+    return helper(s1)==helper(s2)
+
+print(areAnagrams("Aba","BAA"))   
 
 # write your test cases here...
