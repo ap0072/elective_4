@@ -17,4 +17,22 @@
 
 def matrixadd(L, M):
 	# Your code goes here
-	pass
+	#print(L,M)
+	r=[]
+	k=[]
+	try:
+		#print("hi")
+		for i  in range(len(L)):
+			#print(i)
+			for j  in range(len(L[i])):
+				#print(i,j,L[i][j],M[i][j])
+				r.append(L[i][j]+M[i][j])
+			k.append(r)
+			r=[]
+		return k
+	except:
+		return None
+
+L = [[1,  2,  3],[4,  5,  6]]
+M = [[21, 22, 23],[24, 25, 26]]
+print(matrixadd(L,M))
