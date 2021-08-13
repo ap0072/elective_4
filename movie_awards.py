@@ -15,7 +15,28 @@
 #     "The Shape of Water" : 3,
 #     "I, Tonya" : 1
 # }
-
-def movieAwards(oscarResults):
+oscarResults={ 
+    ("Best Picture", "The Shape of Water"), 
+    ("Best Actor", "Darkest Hour"),
+    ("Best Actress", "Three Billboards Outside Ebbing, Missouri"),
+    ("Best Director", "The Shape of Water"),
+    ("Best Supporting Actor", "Three Billboards Outside Ebbing, Missouri"),
+    ("Best Supporting Actress", "I, Tonya"),
+    ("Best Original Score", "The Shape of Water")
+}
+def movieAwards(o):
     # Your code goes here...
-    pass
+    d=[]
+    r={}
+    for i in o:
+        l=list(i)
+        d.append(l[1])
+    for i in d:
+        if i in r.keys():
+            r[i]=r[i]+1
+        else:
+            r[i]=1
+    return r
+
+
+print(movieAwards(oscarResults))
