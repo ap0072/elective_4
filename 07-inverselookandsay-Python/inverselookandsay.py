@@ -22,4 +22,21 @@
 
 def inverselookandsay(a):
 	# Your code goes here
-	pass
+	try:
+		l=[]
+		for i in a:
+			t=list(i)
+			dl=t[0]
+			while(dl!=0):
+				l.append(t[1])
+				dl=dl-1
+		return l
+	except:
+		return []
+
+#print(inverseLookAndSay([(2,3),(1,8),(3,-10)]) == [3,3,8,-10,-10,-10])
+# inverseLookAndSay([]) == []
+# inverseLookAndSay([(3,1)]) == [1,1,1]
+# inverseLookAndSay([(1,-1),(1,2),(1,7)]) == [-1,2,7]
+# inverseLookAndSay([(2,3),(1,8),(3,-10)]) == [3,3,8,-10,-10,-10]
+# inverseLookAndSay([(2,3),(1,8),(4,3)]) == [3,3,8,3,3,3,3])
