@@ -4,5 +4,14 @@
 # sayHi(d1) # Hi, my name is Dot and I am 4 years old!
 # sayHi(d2) # Hi, my name is Elf and I am 3 years old!
 
-class SayHi(Object):
-    pass
+class Dog(object):
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+def SayHi(Object):
+    print(f"Hi, my name is {Object.name} and I am {Object.age} years old!")
+
+d1=Dog("Dot","4")
+d2=Dog("Elf","3")
+SayHi(d1)
+SayHi(d2)
