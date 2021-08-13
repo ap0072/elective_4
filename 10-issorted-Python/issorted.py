@@ -7,4 +7,33 @@
 
 def issorted(a):
 	# your code goes here
-	pass
+	if len(a)<=1:
+		return True
+	if a[0]>a[1]:
+		flag="greater"
+	else:
+		flag="smaller"
+
+	if flag=="greater":
+		t=1
+		i=0
+		while(t!=len(a)):
+			if (a[i+1]>a[i]):
+				return False
+			i=i+1
+			t=t+1
+		return True
+	else:
+		t=1
+		i=0
+		while(t!=len(a)):
+			if (a[i+1]<a[i]):
+				return False
+			i=i+1
+			t=t+1
+		return True
+
+
+
+
+print(issorted([1,1]))
