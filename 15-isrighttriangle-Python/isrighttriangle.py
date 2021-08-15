@@ -5,6 +5,7 @@
 # distance(x1, y1, x2, y2), which you might call several times. Also, remember to use
 # almostEqual (instead of ==) when comparing floats.
 import  math
+from operator import le
 def isrighttriangle(x1, y1, x2, y2, x3, y3):
 	# your code goes here
 	a=math.sqrt(((x1-x2)**2)+((y1-y2)**2))
@@ -20,9 +21,8 @@ def isrighttriangle(x1, y1, x2, y2, x3, y3):
 	s=0	
 	for i in m:
 		s=s+i**2
-	if s==h**2:
+	if abs(s-h**2)<1e-9:
 		return True
 	else:
 		return False
 
-print(isrighttriangle(-1, 7, 10, -4, 12, -2))
