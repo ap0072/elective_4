@@ -4,7 +4,8 @@ sys.path.append(os.getcwd())
 from queues import Queue  
 import pytest
 
-q = Queue(1)
+q = Queue()
+q.enqueue(1)
 q.enqueue(2)
 q.enqueue(3)
 
