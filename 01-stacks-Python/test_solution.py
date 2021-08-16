@@ -11,11 +11,11 @@ e3 = Element(3)
 e4 = Element(4)
 
 # Start setting up a Stack
-stack = stack(e1)
+stack = stack(1)
 
 # Test stack functionality
-stack.push(e2)
-stack.push(e3)
+stack.push(2)
+stack.push(3)
 
 @pytest.mark.parametrize("result",[(3),(2),(1)])
 def test_pop1(result):    
@@ -27,6 +27,6 @@ def test_pop2(result):
 
 @pytest.mark.parametrize("result",[(4)])
 def test_pop3(result):
-    stack.push(e4)    
+    stack.push(4)    
     assert stack.pop().value == result
 
