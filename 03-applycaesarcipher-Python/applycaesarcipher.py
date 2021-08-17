@@ -11,8 +11,49 @@
 
 
 def fun_applycaesarcipher(msg, shift):
-	return ""
+	s=""
+	for i in msg:
+		if i.islower():
+			if (ord(i)+shift)<97:
+				di=97-(ord(i)+shift)
+				s=s+chr(122-(di-1))
+				
+
+			elif (ord(i)+shift)>122:
+				di=(ord(i)+shift)-122
+				s=s+chr(96+(di))
+			else:
+				s=s+chr(ord(i)+shift)
+		
+		elif i==" ":
+			s=s+" "
+	
+		else:
+			if (ord(i)+shift)<65:
+				di=65-(ord(i)+shift)
+				s=s+chr(90-(di-1))
+			
+			elif (ord(i)+shift)>90:
+				di=(ord(i)+shift)-90
+				s=s+chr(64+(di))
+
+			else:
+				s=s+chr(ord(i)+shift)
+
+	return s
 
 
+
+#print(new1("A"))
+#print(fun_applycaesarcipher("We Attack At Dawn", 1))
+#print(fun_applycaesarcipher("ABCDXYZ", -3))
+#"XYZAUVW"))
+#print(fun_applycaesarcipher("zodiac", -2))
+#print(fun_applycaesarcipher("ABCDXYZ", 3))
+#"DEFGABC"))
+#print(fun_applycaesarcipher("abcdxyz", -3))
+#"xyzauvw"))
+#print(fun_applycaesarcipher("abcdxyz", 3))
+#"defgabc"))
 
 
