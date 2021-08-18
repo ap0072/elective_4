@@ -24,7 +24,6 @@ class LinkedList(object):
         if  self.head==None:
             self.head=new_element
         else:
-            # pos=1
             temp=self.head
             temp1=self.head.next
             while(temp1!=None):
@@ -33,10 +32,6 @@ class LinkedList(object):
             p=temp.next
             temp.next=new_element
             new_element=p
-            # while(self.head.next!=None):
-            #     t=self.head.next
-            #     t.next=new_element
-            # self.head.next=new_element
 
             
     def get_position(self, position):
@@ -60,7 +55,6 @@ class LinkedList(object):
         Inserting at position 3 means between
         the 2nd and 3rd elements."""
         # Your code goes here
-        # new_element=Element(new_element)
         if  self.head==None:
             self.head=new_element
         else:
@@ -90,7 +84,6 @@ class LinkedList(object):
         temp=self.head
         while  (temp!=None):
             if(temp.value)==value:
-                #print("hi")
                 if  (temp==self.head):
                     p=temp.next
                     self.head=p
@@ -99,11 +92,9 @@ class LinkedList(object):
                     if  (temp.next==None):
                         previous.next=None
                     else:
-                    #print("entered",temp.value,temp.next.value,previous.value,previous.next.value)
                         p=temp.next
                         previous.next=p
                 break
-                #return  (f'{value} deleted  from  linked  list  at  position {pos}')
             previous=temp
             temp=temp.next
             
