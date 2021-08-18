@@ -16,20 +16,19 @@ def nth_happy_number(n):
 		num=num+1
 	return	l[-1]
 
-def pdi_function(number, base: int = 10):
-    """Perfect digital invariant function."""
+def helper_function(number,base):
     total = 0
+	
     while number > 0:
-        total += pow(number % base, 2)
+        total += (number % base)**2
         number = number // base
     return total
 
-def is_happy(number: int) -> bool:
-    """Determine if the specified number is a happy number."""
-    seen_numbers = set()
-    while number > 1 and number not in seen_numbers:
-        seen_numbers.add(number)
-        number = pdi_function(number)
+def is_happy(number):
+    s = set()
+    while (number > 1)	& (number not in s):
+        s.add(number)
+        number = helper_function(number,10)
     return number == 1
 
 assert(nth_happy_number(1) == 1)
