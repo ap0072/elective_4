@@ -8,5 +8,66 @@
 # Also the function returns the empty list if the original list is empty. 
 # Remember to not use strings. You may not use loops/iteration in this problem.
 
-def fun_recursion_onlyevendigits(l): 
-		return []
+
+#print(fun_recursion_onlyevendigits(4321))
+
+# Python3 program to Print
+# numbers from 1 to n
+
+# def p(n,counter,s=0):
+
+# 	counter=counter+1
+# 	if n!=0:
+# 		r=n%10
+# 		p(n//10,counter)
+# 		if	(r%2==0):
+# 			s=s+r*(10**(counter-1))
+# 	return	s
+
+def printNo1s(n,l=[]):
+	if n!=0:
+		r=n%10
+		if(r%2==0):
+			l.append(r)
+		printNo1s(n//10,l)
+	return	l[::-1]
+
+# Driver code
+#print(printNo1s(17))
+
+
+def prasanth(l,s=0,p=0): 
+	if	len(l)!=0:
+		#print("hi",l,s,p)
+		s=s+((l[-1])*(10**p))
+		#print(s,l[0:-1])
+		return	prasanth(l[0:-1],s,p+1)
+	else:
+		return s
+		
+# val=(fun_recursion_onlyevendigits([4,3]))
+# print(val)
+
+[43, 23265, 17, 58344]
+
+def	fun_recursion_onlyevendigits(l,e=[]):
+	if	len(l)!=0:
+		val=((l[0]))
+		#print(val)
+		r=printNo1s(val,[])
+		# if	(printNo1s(val))==[]:
+		# 	e.append([])
+		# else:
+		f=(prasanth(r))
+		e.append(f)
+		l=l[1:]
+		#print(f'l:{l},e:{e},r:{r}')
+		return	fun_recursion_onlyevendigits(l,e)
+	else:
+		return	e
+result=(fun_recursion_onlyevendigits([43, 23265, 17, 58344]))
+assert result==[4, 226, 0, 844]
+result=(fun_recursion_onlyevendigits([5, 0 , 66, 82, 121]))
+#print(result)
+assert result==[0, 0, 66, 82, 2]
+
