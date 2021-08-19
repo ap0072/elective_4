@@ -7,19 +7,46 @@ class Node(object):
 class BinaryTree(object):
     def __init__(self, root):
         self.root = Node(root)
-
+    
     def search(self, find_val):
         """
         Return True if the find_val is in the tree and False otherwise.
         """
-        # Your code goes here
-        pass
+        if  find_val==None:
+            return  False
+        
+        else:
+            temp1=self.root
+            temp2=self.root
+            try:
+                while(temp1):
+                    if  temp1.value==find_val:
+                        return  True
+                    elif    temp2.value==find_val:
+                        return  True
+                    else:
+                        temp1=temp1.left
+                        temp2=temp2.right
+            except:
+                pass
+
+            return  False
 
     def print_tree(self):
         """
         Print out all tree nodes as they are visited in a pre-order traversal."""
         # Your code goes here
-        pass
+        temp1=self.root
+        temp2=self.root
+        try:
+            while(temp1):
+                print(temp1.value)
+                print(temp2.value)
+                temp1=temp1.left
+                temp2=temp2.right
+        except:
+            pass
+
 
     def preorder_search(self, start, find_val):
         """
@@ -34,3 +61,11 @@ class BinaryTree(object):
         """
         # Your code goes here
         pass
+
+tree = BinaryTree(1)
+# tree.root.left = Node(2)
+# tree.root.right = Node(3)
+# tree.root.left.left = Node(4)
+# tree.root.left.right = Node(5)
+#tree.print_tree()
+print(tree.search("4"))
