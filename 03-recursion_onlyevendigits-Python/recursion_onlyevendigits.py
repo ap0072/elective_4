@@ -21,12 +21,12 @@ def printNo1s(n,l=[]):
 #print(printNo1s(17))
 
 
-def prasanth(l,s=0,p=0): 
+def helper(l,s=0,p=0): 
     if    len(l)!=0:
         #print("hi",l,s,p)
         s=s+((l[-1])*(10**p))
         #print(s,l[0:-1])
-        return    prasanth(l[0:-1],s,p+1)
+        return    helper(l[0:-1],s,p+1)
     else:
         return s
         
@@ -44,7 +44,7 @@ def  fun_recursion_onlyevendigits01(l,e=[]):
         # if    (printNo1s(val))==[]:
         #     e.append([])
         # else:
-        f=(prasanth(r))
+        f=(helper(r))
         e.append(f)
         l=l[1:]
         #print(f'l:{l},e:{e},r:{r}')
