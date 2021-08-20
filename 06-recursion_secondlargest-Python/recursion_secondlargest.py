@@ -13,6 +13,35 @@
 # Again, you do not need to sort the list. We didn't sort it in our sample solution. We just tracked the two largest 
 # values as we recursively traversed the list. Also, you may not use loops/iteration in this problem
 
+
+
+def	largestnum(l,m):
+	if(len(l)!=0):
+		if(m<l[0]):
+			m=l[0]
+		return	largestnum(l[1:],m)
+	else:
+		return	m
+
+def	second_large(l):
+	if(len(l)==0):
+		return	None
+	else:
+		return	largestnum(l,-10)
+
 def recursion_secondlargest(L):
 	# Your code goes here
-	pass
+	if	len(L)==0:
+		return	None
+	val=(largestnum(L,-10))
+	#print(val)
+	L.remove(val)
+	#print(L)
+	return	second_large(L)
+
+
+# val=(largestnum([3,4],-10))
+# print(val)
+print(recursion_secondlargest([-3,-4]))
+
+
