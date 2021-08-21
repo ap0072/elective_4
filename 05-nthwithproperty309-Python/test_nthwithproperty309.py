@@ -4,8 +4,8 @@ from nthwithproperty309 import nthwithproperty309
 import pytest
 
 
-@pytest.mark.parametrize('x, result',[
-	(0, 309),
+@pytest.mark.parametrize('result, x',[
+	(309, 0 ),
 	(418, 1),
 	(462, 2),
 	(474, 3),
@@ -16,5 +16,5 @@ import pytest
 	(7813, 1000)
 ])
 
-def test_nthwithproperty309(x, result):
+def test_nthwithproperty309(result,x):
     assert nthwithproperty309(x) == result
