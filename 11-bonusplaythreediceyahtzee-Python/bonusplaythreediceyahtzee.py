@@ -31,14 +31,137 @@
 # does step2 twice (by calling playStep2, which you already wrote), and then it computes the score (by 
 # calling score, which you already wrote). The function should return two values -- the resulting hand 
 # and the score for that hand. For example:
-# assert(bonusPlayThreeDiceYahtzee(2312413) == (432, 4))
-# assert(bonusPlayThreeDiceYahtzee(2315413) == (532, 5))
-# assert(bonusPlayThreeDiceYahtzee(2345413) == (443, 18))
-# assert(bonusPlayThreeDiceYahtzee(2633413) == (633, 16))
-# assert(bonusPlayThreeDiceYahtzee(2333413) == (333, 29))
-# assert(bonusPlayThreeDiceYahtzee(2333555) == (555, 35))
+# (bonusPlayThreeDiceYahtzee(2312413) == (432, 4))
+# (bonusPlayThreeDiceYahtzee(2315413) == (532, 5))
+# (bonusPlayThreeDiceYahtzee(2345413) == (443, 18))
+# (bonusPlayThreeDiceYahtzee(2633413) == (633, 16))
+# (bonusPlayThreeDiceYahtzee(2333413) == (333, 29))
+# (bonusPlayThreeDiceYahtzee(2333555) == (555, 35))
 
+def	bonusPlayThreeDiceYahtzee(dice):	
+	
+	s=str(dice)[::-1]
+	#print(f"*****{s}***")
+	L=[]
+	for	i	in	s:
+		L.append(int(i))
 
-def bonusplaythreediceyahtzee(dice):
+	bonusPlayThreeDiceYahtzee1(L[0:3],True,0,L)
+
+def bonusPlayThreeDiceYahtzee1(dice,flag,i,L):
 	# Your code goes here
-	pass
+	# 
+	i=i
+	l,c,i=counter_val(dice,flag,i)
+
+	if	c==0:
+		print	(*l,"	",20+(3*l[0]))
+
+	elif	c==1:
+		if	i!=6:
+			bonusPlayThreeDiceYahtzee1(l+L[i:],False,i,L)
+		else:
+			print(*l,"	",10+(2*l[0]))
+	elif	c==2:
+		if	i!=6:
+			#print("Back-to-home",l+L[i:])
+			bonusPlayThreeDiceYahtzee1(l+L[i:],False,i,L)
+
+		else:
+			print(*l,"	",max(l))
+
+
+
+def	counter_val(l,flag,i):
+	try:
+		#print(f"Entered_into_counter_val	funcction	with{l}	and	ivalue	as	{i}")
+		a=l[0]
+		b=l[1]
+		c=l[2]
+		l=[]
+
+		if	a==b	and	b==c:
+			#print("All-val-is-common")
+			counter=0
+			l.append(int(a))
+			l.append(int(b))
+			l.append(int(c))
+			return	l,counter,i
+
+		elif	a==b	and	a!=c:
+			#print("One-val-is-common")
+			counter=1
+			l.append(int(a))
+			l.append(int(b))
+			if	flag:
+				i=i+3
+			else:
+				i=i+1
+
+			if	i==6:
+				return	[a,b,c],counter,i
+			else:
+				return	l,counter,i
+		
+		elif	a==c	and	a!=b:
+			#print("One-val-is-common")
+			counter=1
+			l.append(int(a))
+			l.append(int(c))
+			if	flag:
+				i=i+3
+			else:
+				i=i+2
+			
+			if	i==6:
+				return	[a,b,c],counter,i
+			else:
+				return	l,counter,i
+		
+
+
+		elif	b==c	and	b!=a:
+			#print("One-val-is-common")
+			counter=1
+			l.append(int(c))
+			l.append(int(b))
+
+			if	flag:
+				i=i+3
+			else:
+				i=i+2
+			
+			if	i==6:
+				return	[a,b,c],counter,i
+			else:
+				return	l,counter,i
+
+		else:
+			#print("No-val-is-common")
+			counter=2
+			m=max(int(a),int(b),int(c))
+			l.append(m)
+
+			if	flag:
+				i=i+3
+			else:
+				i=i+2
+			
+			if	i==6:
+				return	[a,b,c],counter,i
+			else:
+				return	l,counter,i
+
+	except:
+		return	(l,2,6)
+
+#bonusPlayThreeDiceYahtzee(2345413)
+
+
+
+(bonusPlayThreeDiceYahtzee(2312413) == ( 4))
+(bonusPlayThreeDiceYahtzee(2315413) == (5))
+(bonusPlayThreeDiceYahtzee(2345413) == (18))
+(bonusPlayThreeDiceYahtzee(2633413) == (16))
+(bonusPlayThreeDiceYahtzee(2333413) == (29))
+(bonusPlayThreeDiceYahtzee(2333555) == (35))
