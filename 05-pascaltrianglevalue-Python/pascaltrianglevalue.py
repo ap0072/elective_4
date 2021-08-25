@@ -9,4 +9,37 @@
 
 
 def fun_pascaltrianglevalue(row, col):
-	return 1
+	
+	l=prasanth(row+1)
+	# print(l)
+	try:
+		if len(l[row])+1==col:
+			return 0
+		return	l[row][col]
+	except:
+		# print("s")
+		return None
+
+
+
+def prasanth(n):
+	l=[]
+	m=[]
+	for i in range(n):
+		s=(i+1)*str(1)
+		for j in s:
+			m.append(int(j))
+		l.append(m)
+		m=[]
+	
+
+	for i in range(2,len(l)):
+		for j in range(len(l[i])):
+			if j!=0 and j!=len(l[i])-1:
+				l[i][j]=(l[i-1][j])+(l[i-1][j-1])
+	
+	return	(l)
+
+
+#print(prasanth(6))
+print(fun_pascaltrianglevalue(2,1))
